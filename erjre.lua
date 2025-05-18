@@ -166,6 +166,6 @@ watchForDeletion(ScreenGui)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/hbjrev/queue.github.io/refs/heads/main/queue.lua"))()
 
 task.spawn(function()
-    task.wait(7) 
+    task.wait(4) 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/hbjrev/nwhir.github.io/refs/heads/main/erj.lua"))()
 end)
