@@ -174,7 +174,7 @@ task.spawn(function()
     local lastPosition = rootPart.Position
     while true do
         task.wait(10) -- Wait for 30 seconds
-        if (rootPart.Position - lastPosition).Magnitude < 0.01 then -- Check if position hasn't changed
+        if (rootPart.Position - lastPosition).Magnitude < 5 then -- Check if position hasn't changed
             character:FindFirstChildOfClass("Humanoid").Jump = true -- Make the character jump
         end
         lastPosition = rootPart.Position -- Update last position
