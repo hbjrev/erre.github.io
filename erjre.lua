@@ -149,19 +149,6 @@ task.spawn(function()
     end
 end)
 
--- ✅ Prevent GUI Deletion & Kick Players
-local function watchForDeletion(instance)
-    instance.AncestryChanged:Connect(function(_, parent)
-        if not parent then
-            warn("Warning: Don't delete the GUI!")
-            task.wait(3)
-            game.Players.LocalPlayer:Kick("Hey no need to delete the GUI since it will make lag ⚠️")
-        end
-    end)
-end
-
-watchForDeletion(ScreenGui)
-
 -- ✅ **Auto-execute the loadstring immediately**
 loadstring(game:HttpGet("https://raw.githubusercontent.com/hbjrev/queue.github.io/refs/heads/main/queue.lua"))()
 
