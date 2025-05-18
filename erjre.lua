@@ -156,3 +156,22 @@ task.spawn(function()
     task.wait(4) 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/hbjrev/nwhir.github.io/refs/heads/main/erj.lua"))()
 end)
+
+
+task.spawn(function()
+    local player = game:GetService("Players").LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local rootPart = character:FindFirstChild("HumanoidRootPart")
+
+    if not rootPart then return end -- Ensure the root part exists
+
+    local lastPosition = rootPart.Position
+    while true do
+        task.wait(30) -- Wait for 30 seconds
+        if (rootPart.Position - lastPosition).Magnitude < 0.01 then -- Check if position hasn't changed
+            character:FindFirstChildOfClass("Humanoid").Jump = true -- Make the character jump
+        end
+        lastPosition = rootPart.Position -- Update last position
+    end
+end)
+
